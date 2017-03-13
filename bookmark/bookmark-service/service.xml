@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.bookmark">
+	<namespace>active</namespace>
+	<!-- ブックマーク情報 -->
+	<entity local-service="true" remote-service="true" name="companyBookmark">
+		<!-- companyID -->
+		<column name="companyId" type="long"/>
+		<!-- groupId -->
+		<column name="groupId" type="String"/>
+		<!-- ブックマークID -->
+		<column name="bookmarkId" primary="true" type="String" />
+		<!--ブックマークURL -->
+		<column name="bookmarkUrl" type="String" />
+		<!-- ブックマークタイトル -->
+		<column name="bookmarkTitle" type="String" />
+		<!-- 登録ユーザー -->
+		<column name="userId" type="Long" />
+		<!-- 記事内容 -->
+		<column name="content" type="String" />
+		<!-- 作成日 -->
+		<column name="createDate" type="Date" />
+		<!-- 更新日 -->
+		<column name="updateDate" type="Date" />
+		<!-- 削除 -->
+		<column name="isDelete" type="Boolean" />
+		
+		<!-- finder -->
+		<finder name="bookmarkId" return-type="Collection">
+			<finder-column name="bookmarkId" />
+			<finder-column name="bookmarkUrl" />
+			<finder-column name="bookmarkTitle" />
+		</finder>
+		
+		<finder name="bookmarkUrl" return-type="Collection">
+			<finder-column name="bookmarkUrl" />
+		</finder>
+
+		<finder name="bookmarTitle" return-type="Collection">
+			<finder-column name="bookmarkTitle" />
+		</finder>
+		
+		<finder name="bookmarUserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		
+		<!-- References -->
+		<reference entity="Company" package-path="com.liferay.portal" />
+		<reference entity="Group" package-path="com.liferay.portal" />
+	</entity>
+</service-builder>

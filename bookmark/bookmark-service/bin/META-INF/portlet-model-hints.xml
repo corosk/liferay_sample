@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.bookmark.model.companyBookmark">
+		<field name="companyId" type="long" />
+		<field name="groupId" type="String" />
+		<field name="bookmarkId" type="String" />
+		<field name="bookmarkUrl" type="String" />
+		<field name="bookmarkTitle" type="String" />
+		<field name="userId" type="Long" />
+		<field name="content" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="updateDate" type="Date" />
+		<field name="isDelete" type="Boolean" />
+	</model>
+</model-hints>

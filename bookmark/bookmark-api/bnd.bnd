@@ -1,0 +1,7 @@
+Bundle-SymbolicName: bookmark-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.bookmark.exception,\
+	com.bookmark.model,\
+	com.bookmark.service,\
+	com.bookmark.service.persistence
