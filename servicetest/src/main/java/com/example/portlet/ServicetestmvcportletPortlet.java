@@ -32,16 +32,6 @@ public class ServicetestmvcportletPortlet extends MVCPortlet {
     @Override
     public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 	    throws IOException, PortletException {
-/*	String id = renderRequest.getRemoteUser();
-	System.out.println(id);
-	int no = companyBookmarkLocalServiceUtil.getcompanyBookmarksCount() + 1;
-	companyBookmark companyMark = companyBookmarkLocalServiceUtil.createcompanyBookmark(String.valueOf(no));
-	companyMark.setUserId(Long.parseLong(id));
-	companyMark.setBookmarkTitle("CHINTAI.NET");
-	companyMark.setBookmarkUrl("http://www.chintai.net");
-	companyMark.setCreateDate(new Date());
-	companyMark.setIsDelete(false);
-	companyBookmarkLocalServiceUtil.addcompanyBookmark(companyMark);*/
 	String id = renderRequest.getRemoteUser();
 	List<companyBookmark> lists = new ArrayList<companyBookmark>();
 	List<companyBookmark> list = companyBookmarkLocalServiceUtil.getcompanyBookmarks(0,companyBookmarkLocalServiceUtil.getcompanyBookmarksCount());
