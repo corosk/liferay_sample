@@ -4,7 +4,7 @@
 <service-builder package-path="com.bookmark">
 	<namespace>active</namespace>
 	<!-- ブックマーク情報 -->
-	<entity local-service="true" remote-service="true" name="companyBookmark">
+	<entity remote-service="true" table="active_companyBookmark" local-service="true" name="companyBookmark">
 		<!-- companyID -->
 		<column name="companyId" type="long"/>
 		<!-- groupId -->

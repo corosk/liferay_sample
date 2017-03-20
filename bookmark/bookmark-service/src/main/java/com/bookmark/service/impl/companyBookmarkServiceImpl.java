@@ -16,7 +16,9 @@ package com.bookmark.service.impl;
 
 import aQute.bnd.annotation.ProviderType;
 
+import com.bookmark.model.companyBookmark;
 import com.bookmark.service.base.companyBookmarkServiceBaseImpl;
+import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 
 /**
  * The implementation of the company bookmark remote service.
@@ -39,4 +41,13 @@ public class companyBookmarkServiceImpl extends companyBookmarkServiceBaseImpl {
 	 *
 	 * Never reference this class directly. Always use {@link com.bookmark.service.companyBookmarkServiceUtil} to access the company bookmark remote service.
 	 */
+    @JSONWebService(method = "GET")
+    public  companyBookmark addCompanyBookmark(String id, String url, String title, String content) {
+       return companyBookmarkLocalService.addCompanyBookmark(id, url, title, content);
+    }
+    
+    @JSONWebService(method = "GET")
+    public  companyBookmark deleteCompanyBookmark(String bookmarkId) {
+       return companyBookmarkLocalService.deleteCompanyBookmark(bookmarkId);
+    }
 }

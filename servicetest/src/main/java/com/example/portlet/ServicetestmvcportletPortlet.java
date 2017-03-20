@@ -2,6 +2,7 @@ package com.example.portlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.portlet.Portlet;
@@ -32,25 +33,16 @@ public class ServicetestmvcportletPortlet extends MVCPortlet {
     @Override
     public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 	    throws IOException, PortletException {
-/*	String id = renderRequest.getRemoteUser();
-	System.out.println(id);
-	int no = companyBookmarkLocalServiceUtil.getcompanyBookmarksCount() + 1;
-	companyBookmark companyMark = companyBookmarkLocalServiceUtil.createcompanyBookmark(String.valueOf(no));
-	companyMark.setUserId(Long.parseLong(id));
-	companyMark.setBookmarkTitle("CHINTAI.NET");
-	companyMark.setBookmarkUrl("http://www.chintai.net");
-	companyMark.setCreateDate(new Date());
-	companyMark.setIsDelete(false);
-	companyBookmarkLocalServiceUtil.addcompanyBookmark(companyMark);*/
 	String id = renderRequest.getRemoteUser();
+
 	List<companyBookmark> lists = new ArrayList<companyBookmark>();
 	List<companyBookmark> list = companyBookmarkLocalServiceUtil.getcompanyBookmarks(0,companyBookmarkLocalServiceUtil.getcompanyBookmarksCount());
 	for (companyBookmark cb : list) {
-	    if(cb.getUserId().toString().equals(id)){
+	    if(cb.getUserId().toString().equals(id) && !cb.getIsDelete()){
 		lists.add(cb);
 	    }
 	}
-	
+	renderRequest.setAttribute("userId", id);
 	renderRequest.setAttribute("bookmarks", lists);
 
 	super.doView(renderRequest, renderResponse);
